@@ -145,7 +145,85 @@ export default {
         },
         async checkNicknameDuplication () {
             console.log('닉네임 중복 검사 누름')
+            try {
+                const isDuplicate = await this.requestNicknameDuplicationCheckToDjango({
+                    newNickname: this.nickname.trim()
+                })
+                if (isDuplicate) {
+                    this.nicknameErrorMessages = ['이 nickname은 이미 사용중입니다!']
+                    this.isNicknameValid = false
+                } else {
+                    this.nicknameErrorMessages = []
+                    this.isNicknameValid = true
+                }
+            } catch(error) {
+                alert('닉네임 중복 확인에 실패했습니다!')
+                this.isNicknameValid = false
+            }
+        },
+        async submitForm () {
+            console.log('회원가입 하기 누름')
+            if (this.$refs.form.validate()) {
+                const accointInfo = {
+                    email: this.email,
+                    nickname: this.nickname,
+                    // password: this.password,     // 비밀번호 추가
+                    gender: this.gender,            // 성별 추가
+                    birthyear: this.birthyear,      // 생년월일 추가
+                }
+                await this.requestCreateNewAccountToDjango(accountInfo)
+                console.log('전송한 데이터:', accountInfo)
+
+                const accessToken = localStorage.getItem("accessToken");
+                const email = accointInfo.email
+                console.log('register submitForm email:', email)
+                await this.requestAddRedisAccessTokenToDjango({ email, accessToken })
+                this.$rotuer.push('/')
+            }
         }
     }
 }
 </script>
+
+
+<style scoped>
+.v-card {
+    position: relative;
+    z-index: 1;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    min-width: 400px;
+    min-height: 500px;
+    padding: 20px;
+    border-top-width: 50px;
+    border-radius: 20px;
+}
+.v-btn {
+    position: relative;
+    padding: 8px 16px;
+    margin-right: 10px;
+    background-color: rgb(200, 255, 0);
+}
+
+:deep(.v-radio-group > .v-input__control > .v-label) {
+    color: #fff !important;
+    margin-inline-start: 0px !important;
+    margin-bottom: 12px !important;
+    opacity: 1 !important;
+}
+
+:deep(
+        .v-radio-group
+            >   .v-input__control
+            >   .v-label
+            >   .v-selection-control-group
+    ) {
+    padding-inline-start: 0px !important;
+    margin-top: 0px !important;
+}
+
+:deep(.v-message__message) {
+    color: rgb(200, 255, 0) !important;
+    font-size: 18px;
+}
+</style>
