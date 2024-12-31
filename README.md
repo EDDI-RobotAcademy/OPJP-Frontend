@@ -1,2 +1,0 @@
-# OPJP-Frontend
-OPJP Frontend
