@@ -1,16 +1,19 @@
 <template>
-  <v-app>
-    <HomeView />
-  </v-app>
+  <v-container>
+    <v-app>
+      <NavigationBar/>
+      <v-main>
+        <NuxtPage/>
+      </v-main>
+    </v-app>
+  </v-container>
 </template>
 
-<script>
-import HomeView from '/Users/junghyeonseo/lecture/GitHub/OPJP-Frontend/OPJP/home/pages/HomeView.vue';
-
-export default {
-  name: 'App',
-  components: {
-    HomeView,
-  },
-};
+<script setup>
 </script>
+
+<style scoped>
+</style>
+
+
+
