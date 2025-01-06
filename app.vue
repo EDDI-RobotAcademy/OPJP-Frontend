@@ -14,6 +14,3 @@
 
 <style scoped>
 </style>
-
-
-
