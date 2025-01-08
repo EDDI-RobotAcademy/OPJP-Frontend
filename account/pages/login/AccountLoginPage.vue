@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import loginBgImage from '@/assets/images/fixed/login_bg2.webp';
+import loginBgImage from '@/assets/images/fixed/도서관.webp';
 
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -81,8 +81,8 @@ const goToKakaoLogin = async () => {
 .kakao-login-btn {
   position: relative;
   top: 40vh;
-  width: 200px !important;
-  height: 150px !important; /* Force height change */
+  width: 100px !important;
+  height: 50px !important; /* Force height change */
   background-image: url("@/assets/images/fixed/btn_login_kakao.png");
   background-size: contain;
   background-repeat: no-repeat;
