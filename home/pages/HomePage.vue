@@ -42,7 +42,7 @@
         <v-row>
             <v-col cols="12" class="text-center">
                 <v-divider></v-divider>
-                <p>&copy; 2024 지브로. All rights reserved.</p>
+                <p>&copy; OPJP. Library Service.</p>
             </v-col>
         </v-row>
     </v-container>

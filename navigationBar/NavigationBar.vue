@@ -63,3 +63,50 @@ onMounted(async () => {
   }
 });
 </script>
+
+
+<style scoped>
+/* 전체 네비게이션 바 스타일 */
+.v-app-bar {
+    background-color: #795548 !important; /* 브라운 색상 */
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 홈 버튼 스타일 */
+.home-btn {
+    padding: 0 16px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: #fbe9e7; /* 브라운 계열 텍스트 색상 */
+}
+
+/* 타이틀 스타일 */
+.title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* 버튼 텍스트 스타일 */
+.btn-text {
+    font-size: 1rem;
+    color: #ffe0b2; /* 브라운 계열 텍스트 색상 */
+    transition: color 0.3s ease;
+}
+
+.btn-text:hover {
+    color: #ffccbc; /* 호버 시 색상 변경 */
+}
+
+/* 아이콘 스타일 */
+.icon {
+    font-size: 1.2rem;
+    margin-right: 4px;
+    color: #d7ccc8;
+}
+
+/* 여백 조정 */
+.v-spacer {
+    flex: 1;
+}
+</style>
