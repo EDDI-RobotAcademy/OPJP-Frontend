@@ -61,7 +61,7 @@ export default {
 
 <style>
 .library-background {
-  background-image: url('../../assets/images/fixed/도서관 배경사진.webp') !important;
+  background-image: url('@/assets/images/fixed/도서관 배경사진.webp') !important;
   background-size: cover !important;
   background-position: center !important;
   background-attachment: fixed !important;
